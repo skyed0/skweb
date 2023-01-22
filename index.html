@@ -200,12 +200,37 @@ border-radius: 5px;
     <script src="assets/js/popup.js"></script>
     <script src="assets/js/custom.js"></script>
       <script src="/adex.js" type="text/javascript"></script>
-<script type="text/javascript">
-
-if(!document.getElementById('zeLmXTSYbBiC')){
-  document.getElementById('vjnASUZpwXaD').style.display='block';
-}
-
-</script>
+<script src="/adblockerDetector.js"></script>
+	<script>
+	// Configure the adblock detector
+	(function(){
+		var enabledEl = document.getElementById('vjnASUZpwXaD');
+	
+		function adBlockDetected() {
+			enabledEl.style.display = 'block';
+			
+		}
+		function adBlockNotDetected() {
+			
+			enabledEl.style.display = 'none';
+		}
+		
+		if(typeof window.adblockDetector === 'undefined') {
+			adBlockDetected();
+		} else {
+			window.adblockDetector.init(
+				{
+					debug: true,
+					found: function(){
+						adBlockDetected();
+					},
+					notFound: function(){
+						adBlockNotDetected();
+					}
+				}
+			);
+		}
+	}());
+	</script>
   </body>
 </html>
