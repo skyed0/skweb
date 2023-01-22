@@ -185,7 +185,7 @@ body .page-content {
   cursor: pointer;
 }
 .block-body {
-    filter: blur(5px);
+    filter: blur(2px);
     pointer-events: none;
     opacity: 0.5;
 }
