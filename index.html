@@ -200,37 +200,23 @@ border-radius: 5px;
     <script src="assets/js/popup.js"></script>
     <script src="assets/js/custom.js"></script>
       <script src="/adex.js" type="text/javascript"></script>
-<script src="/adblockerDetector.js"></script>
-	<script>
-	// Configure the adblock detector
-	(function(){
-		var enabledEl = document.getElementById('vjnASUZpwXaD');
-	
-		function adBlockDetected() {
-			enabledEl.style.display = 'block';
-			
-		}
-		function adBlockNotDetected() {
-			
-			enabledEl.style.display = 'none';
-		}
-		
-		if(typeof window.adblockDetector === 'undefined') {
-			adBlockDetected();
-		} else {
-			window.adblockDetector.init(
-				{
-					debug: true,
-					found: function(){
-						adBlockDetected();
-					},
-					notFound: function(){
-						adBlockNotDetected();
-					}
-				}
-			);
-		}
-	}());
-	</script>
+<script>
+async function detectAdBlock() {
+	var enabledEl = document.getElementById('adb-enabled');
+  let adBlockEnabled = false
+  const googleAdUrl = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
+  try {
+    await fetch(new Request(googleAdUrl)).catch(_ => adBlockEnabled = true)
+  } catch (e) {
+    adBlockEnabled = true
+  } finally {
+    if (adBlockEnabled == true)
+        enabledEl.style.display = 'block';
+  }
+}
+detectAdBlock()
+</script>
   </body>
 </html>
+
+
