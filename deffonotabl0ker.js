@@ -19,6 +19,7 @@ if (adBlockEnabled) {
     blocked = true;
     document.querySelector("#main").classList.add("block-body");
     document.querySelector("#popout").classList.add("show-popout");
+enabledEl1.style.display = 'flex'
 }
 
 document.querySelector("#disable-button").addEventListener("click", () => {
