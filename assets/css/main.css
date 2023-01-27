@@ -170,29 +170,7 @@ body .page-content {
   z-index: 9999;
 }
 
-#popout-content {
-  background-color: white;
-  padding: 20px;
-  text-align: center;
-}
 
-#disable-button {
-  background-color: #8e44ad;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-.block-body {
-    filter: blur(2px);
-    pointer-events: none;
-    opacity: 0.5;
-}
-
-.show-popout {
-    display: flex;
-}
 p {
   font-size: 15px;
   color: #666;
